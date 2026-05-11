@@ -3,321 +3,336 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bekzat Gulzhigit uulu | Software Engineer & AI Researcher</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <title>Bekzat Gulzhigit uulu | Software Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --bg-color: #0a0a0a;
-      --card-bg: rgba(255, 255, 255, 0.03);
-      --card-border: rgba(255, 255, 255, 0.08);
-      --text-main: #f3f4f6;
-      --text-muted: #9ca3af;
-      --accent: #3b82f6;
-      --accent-glow: #8b5cf6;
+      --text-main: #2b2b2b;
+      --text-muted: #555555;
+      --text-light: #777777;
+      --bg-color: #ffffff;
+      --bg-alt: #f9f9f9;
+      --accent: #0056b3; /* Professional Academic Blue */
+      --border: #eaeaea;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    
+
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg-color);
+      font-family: 'Inter', -apple-system, sans-serif;
+      background-color: var(--bg-alt);
       color: var(--text-main);
-      line-height: 1.6;
-      overflow-x: hidden;
+      line-height: 1.7;
+      font-size: 16px;
     }
 
-    /* Background Glow Effect */
-    .bg-glow {
-      position: fixed;
-      top: -20%; left: -10%;
-      width: 50vw; height: 50vw;
-      background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(10,10,10,0) 70%);
-      z-index: -1;
-      border-radius: 50%;
-      pointer-events: none;
-    }
-    .bg-glow-2 {
-      position: fixed;
-      bottom: -20%; right: -10%;
-      width: 50vw; height: 50vw;
-      background: radial-gradient(circle, rgba(139,92,246,0.1) 0%, rgba(10,10,10,0) 70%);
-      z-index: -1;
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
-
-    /* Navigation */
-    nav {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 24px 0;
-      position: sticky; top: 0;
-      background: rgba(10, 10, 10, 0.8);
-      backdrop-filter: blur(10px);
-      z-index: 100;
-      border-bottom: 1px solid var(--card-border);
-    }
-    .logo { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 1.2rem; color: var(--text-main); text-decoration: none; }
-    .logo span { color: var(--accent); }
-    .nav-links a {
-      color: var(--text-muted); text-decoration: none; margin-left: 24px; font-size: 0.9rem; transition: color 0.3s;
-    }
-    .nav-links a:hover { color: var(--text-main); }
-
-    /* Hero Section */
-    .hero {
-      min-height: 85vh;
-      display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
-      padding: 80px 0;
-    }
-    .hero-img {
-      width: 160px; height: 160px;
-      border-radius: 50%;
-      border: 2px solid rgba(59, 130, 246, 0.5);
-      box-shadow: 0 0 30px rgba(59, 130, 246, 0.2);
-      margin-bottom: 32px;
-      object-fit: cover;
-    }
-    .hero h1 {
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 16px;
-      letter-spacing: -0.03em;
-    }
-    .gradient-text {
-      background: linear-gradient(to right, var(--accent), var(--accent-glow));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .hero p {
-      font-size: 1.15rem; color: var(--text-muted); max-width: 650px; margin-bottom: 32px; font-weight: 300;
-    }
-    
-    .action-buttons {
-      display: flex; gap: 20px; align-items: center; margin-bottom: 32px;
-    }
-    .btn-resume {
-      background: rgba(59, 130, 246, 0.1);
-      color: var(--accent);
-      border: 1px solid rgba(59, 130, 246, 0.4);
-      padding: 12px 24px;
+    .container {
+      max-width: 850px;
+      margin: 40px auto;
+      background: var(--bg-color);
+      padding: 60px 80px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
       border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      font-family: 'JetBrains Mono', monospace;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 15px rgba(59, 130, 246, 0.1);
-    }
-    .btn-resume:hover {
-      background: rgba(59, 130, 246, 0.2);
-      box-shadow: 0 0 25px rgba(59, 130, 246, 0.3);
-      transform: translateY(-2px);
-    }
-    .social-links a {
-      color: var(--text-muted); font-size: 1.5rem; margin-right: 15px; transition: all 0.3s ease; text-decoration: none;
-    }
-    .social-links a:hover { color: var(--text-main); transform: translateY(-3px); display: inline-block; }
-
-    /* Sections */
-    section { padding: 80px 0; border-top: 1px solid var(--card-border); }
-    .section-title {
-      font-size: 2rem; font-weight: 600; margin-bottom: 40px; display: flex; align-items: center; gap: 12px;
-    }
-    .section-title i { color: var(--accent); font-size: 1.5rem; }
-
-    /* Glassmorphism Cards */
-    .grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
-    @media(min-width: 768px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
-
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 16px;
-      padding: 32px;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(10px);
-    }
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(59, 130, 246, 0.4);
-      box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.15);
+      border: 1px solid var(--border);
     }
 
-    .card-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; flex-wrap: wrap; }
-    .card-title { font-size: 1.25rem; font-weight: 600; color: var(--text-main); }
-    .card-date { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--accent); }
-    .card-subtitle { color: var(--text-muted); font-size: 1rem; margin-bottom: 16px; }
-    
-    ul.task-list { list-style: none; color: var(--text-muted); font-size: 0.95rem; }
-    ul.task-list li { margin-bottom: 12px; position: relative; padding-left: 20px; }
-    ul.task-list li::before {
-      content: '▹'; position: absolute; left: 0; color: var(--accent);
-    }
-
-    /* Skills Tags */
-    .skills-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
-    .skill-tag {
-      background: rgba(59, 130, 246, 0.1);
+    a {
       color: var(--accent);
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-family: 'JetBrains Mono', monospace;
-      border: 1px solid rgba(59, 130, 246, 0.2);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    a:hover {
+      text-decoration: underline;
     }
 
-    footer { text-align: center; padding: 40px 0; color: var(--text-muted); font-size: 0.9rem; border-top: 1px solid var(--card-border); }
+    /* Header Profile Section */
+    .profile-header {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 50px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
 
-    /* Simple Fade In Animation */
-    .fade-in { animation: fadeIn 1s ease-out forwards; opacity: 0; transform: translateY(20px); }
-    @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
-    .delay-1 { animation-delay: 0.2s; }
-    .delay-2 { animation-delay: 0.4s; }
+    .profile-photo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      flex-shrink: 0;
+    }
+
+    .profile-info h1 {
+      font-family: 'Merriweather', serif;
+      font-size: 2.2rem;
+      color: var(--text-main);
+      margin-bottom: 5px;
+      letter-spacing: -0.5px;
+    }
+
+    .profile-info h2 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 15px;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 20px;
+      font-size: 0.95rem;
+    }
+
+    .contact-links a {
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .contact-links a:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* Typography & Sections */
+    section {
+      margin-bottom: 50px;
+    }
+
+    h3.section-title {
+      font-family: 'Merriweather', serif;
+      font-size: 1.4rem;
+      color: var(--text-main);
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .about-text p {
+      margin-bottom: 16px;
+      color: var(--text-muted);
+      text-align: justify;
+    }
+
+    /* Experience & Project Items */
+    .item {
+      margin-bottom: 24px;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 6px;
+    }
+
+    .item-title {
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--text-main);
+    }
+
+    .item-meta {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
+    .item-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Skills */
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-badge {
+      background: #f1f5f9;
+      color: #334155;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid #e2e8f0;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      color: var(--text-light);
+      font-size: 0.85rem;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .container {
+        margin: 0;
+        padding: 40px 24px;
+        border-radius: 0;
+        border: none;
+      }
+      .profile-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+      }
+      .contact-links {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .item-header {
+        flex-direction: column;
+      }
+      .item-meta {
+        margin-bottom: 8px;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <div class="bg-glow"></div>
-  <div class="bg-glow-2"></div>
-
-  <nav>
-    <div class="container" style="display: flex; justify-content: space-between; width: 100%;">
-      <a href="#" class="logo">bekzat<span>.dev</span></a>
-      <div class="nav-links">
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-      </div>
-    </div>
-  </nav>
-
   <div class="container">
-    <header class="hero fade-in">
-      <img src="https://github.com/MagaElon.png" alt="Bekzat" class="hero-img">
-      <h1>Bekzat <br><span class="gradient-text">Gulzhigit uulu</span></h1>
-      <p class="delay-1 fade-in">
-        Award-winning Computer Scientist and AI Researcher based in Chicago. Medallist at the World Physics Olympiad and 1st Place Champion at the DePaul Hackathon. I specialize in architecting high-performance machine learning inference systems, enterprise RAG pipelines, and self-healing LLM agentic frameworks for YC-backed startups.
-      </p>
-      
-      <div class="action-buttons delay-2 fade-in">
-        <a href="bekzat_resume.pdf" target="_blank" class="btn-resume"><i class="fas fa-file-pdf"></i> View Resume</a>
-        <div class="social-links">
-          <a href="https://github.com/MagaElon" target="_blank"><i class="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/bekzatg/" target="_blank"><i class="fab fa-linkedin"></i></a>
-          <a href="mailto:bgulzhig@depaul.edu"><i class="fas fa-envelope"></i></a>
+    
+    <header class="profile-header">
+      <img src="profile.jpg" alt="Bekzat Gulzhigit uulu" class="profile-photo">
+      <div class="profile-info">
+        <h1>Bekzat Gulzhigit uulu</h1>
+        <h2>Software Engineer & AI Researcher</h2>
+        <div class="contact-links">
+          <a href="mailto:bgulzhig@depaul.edu"><i class="fas fa-envelope"></i> bgulzhig@depaul.edu</a>
+          <a href="https://github.com/MagaElon" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://www.linkedin.com/in/bekzatg/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          <a href="bekzat_resume.pdf" target="_blank"><i class="fas fa-file-pdf"></i> Resume</a>
         </div>
       </div>
     </header>
 
-    <section id="experience" class="fade-in">
-      <h2 class="section-title"><i class="fas fa-briefcase"></i> Experience</h2>
-      <div class="grid">
-        
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title">Software Engineer Intern</h3>
-            <span class="card-date">Apr 2026 – Present</span>
-          </div>
-          <div class="card-subtitle">SkyIT Services</div>
-          <ul class="task-list">
-            <li>Developing robust backend services for aviation fleet management systems.</li>
-            <li>Collaborating with cross-functional teams to ensure high availability and code-quality standards.</li>
-          </ul>
-        </div>
+    <section class="about-text">
+      <h3 class="section-title">About</h3>
+      <p>Senior at DePaul University, majoring in Computer Science with a concentration in AI.</p>
+      <p>I came to the US from Kyrgyzstan, where physics is what got me into programming — gold at the national Physics Olympiad and bronze at the World Physics Olympiad along the way.</p>
+      <p>Currently building agentic mobile QA systems with LLMs at an early-stage YC startup. Before that I worked on high-throughput Flask APIs for a fintech (cut response latency by ~22%) and side projects in ML inference and RAG on AWS, including a retrieval system that hit 90%+ accuracy on enterprise data.</p>
+      <p>Comfortable with Python, SQL (PostgreSQL/MySQL), JavaScript, C++, Docker, AWS, gRPC/REST, and CI/CD. I've TA'd Data Structures for 60+ students, took 1st at the DePaul Hackathon, and spent a summer preprocessing stellar datasets for a NASA-funded research grant.</p>
+    </section>
 
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title">Research Intern (AI & QA)</h3>
-            <span class="card-date">Jan 2026 – Present</span>
-          </div>
-          <div class="card-subtitle">QualGent (YC X25)</div>
-          <ul class="task-list">
-            <li>Engineering resilient, self-healing Python services utilizing NLP to automate bug detection and replace brittle manual test scripts.</li>
-            <li>Deploying scalable LLM-driven automation pipelines to optimize software simulation workflows.</li>
-          </ul>
+    <section>
+      <h3 class="section-title">Experience</h3>
+      
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">Software Engineer Intern — SkyIT Services</div>
+          <div class="item-meta">Apr 2026 – Present</div>
         </div>
-
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title">Software Engineering Intern</h3>
-            <span class="card-date">Jun 2025 – Aug 2025</span>
-          </div>
-          <div class="card-subtitle">Kodif</div>
-          <ul class="task-list">
-            <li>Optimized high-throughput REST APIs using Python and Flask, improving response latency by 22% for fintech integrations.</li>
-            <li>Built robust CI/CD deployment suites with 85% test coverage, reducing manual QA time by 35%.</li>
-          </ul>
+        <div class="item-desc">
+          Developing backend services for aviation fleet management systems and collaborating with cross-functional teams to ensure high availability.
         </div>
+      </div>
 
-        <div class="card">
-          <div class="card-header">
-            <h3 class="card-title">Software Engineering Assistant</h3>
-            <span class="card-date">Sep 2025 – Nov 2025</span>
-          </div>
-          <div class="card-subtitle">Intelligent Design Lab, DePaul University</div>
-          <ul class="task-list">
-            <li>Architected high-volume backend data systems using PostgreSQL to enable concurrent ML experiment tracking for 10+ researchers.</li>
-          </ul>
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">Research Intern (AI & QA) — QualGent (YC X25)</div>
+          <div class="item-meta">Jan 2026 – Present</div>
         </div>
+        <div class="item-desc">
+          Building agentic mobile QA systems using LLMs. Engineering resilient, self-healing Python services utilizing NLP to automate bug detection and replace brittle manual test scripts.
+        </div>
+      </div>
 
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">Software Engineering Intern — Kodif</div>
+          <div class="item-meta">Jun 2025 – Aug 2025</div>
+        </div>
+        <div class="item-desc">
+          Worked on high-throughput REST APIs using Python and Flask, improving response latency by 22% for fintech integrations. Built robust CI/CD deployment suites achieving 85% test coverage.
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">Teaching Assistant (Data Structures) — DePaul University</div>
+          <div class="item-meta">Jan 2025 – May 2025</div>
+        </div>
+        <div class="item-desc">
+          Mentored 60+ students in graph algorithms and hash table optimization, leading to a 20% improvement in overall exam performance.
+        </div>
+      </div>
+      
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">Research Assistant — NASA Illinois Space Grant</div>
+          <div class="item-meta">Jun 2024 – Sep 2024</div>
+        </div>
+        <div class="item-desc">
+          Reduced data cleaning time by 40% by developing efficient preprocessing pipelines for large-scale stellar datasets using NumPy.
+        </div>
       </div>
     </section>
 
-    <section id="projects" class="fade-in">
-      <h2 class="section-title"><i class="fas fa-code"></i> Selected Projects</h2>
-      <div class="grid grid-2">
-        
-        <div class="card">
-          <h3 class="card-title" style="margin-bottom: 8px;">AI Job Application Tracker</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem;">Automated tracking system utilizing AI to parse job descriptions, manage application statuses, and streamline workflows.</p>
-          <div class="skills-container">
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">LLMs</span>
-            <span class="skill-tag">Automation</span>
-          </div>
+    <section>
+      <h3 class="section-title">Selected Projects</h3>
+      
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">Enterprise RAG Pipeline</div>
         </div>
-
-        <div class="card">
-          <h3 class="card-title" style="margin-bottom: 8px;">ML Inference Service</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem;">Designed and deployed a fault-tolerant backend service using Flask and Python to serve machine learning models via low-latency endpoints.</p>
-          <div class="skills-container">
-            <span class="skill-tag">Flask</span>
-            <span class="skill-tag">AWS</span>
-            <span class="skill-tag">CI/CD</span>
-          </div>
+        <div class="item-desc">
+          Architected a high-performance retrieval system achieving 90%+ accuracy on enterprise data, built using IBM watsonx.ai.
         </div>
+      </div>
 
-        <div class="card">
-          <h3 class="card-title" style="margin-bottom: 8px;">Enterprise RAG Pipeline</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem;">Architected a high-performance RAG system using IBM watsonx.ai, achieving 90%+ accuracy on enterprise data retrieval.</p>
-          <div class="skills-container">
-            <span class="skill-tag">IBM watsonx.ai</span>
-            <span class="skill-tag">RAG</span>
-          </div>
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">ML Inference Service</div>
         </div>
-
-        <div class="card">
-          <h3 class="card-title" style="margin-bottom: 8px;">High-Volume Integration API</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem;">Developed secure gRPC and REST APIs for enterprise data integrations, resolving critical vulnerabilities.</p>
-          <div class="skills-container">
-            <span class="skill-tag">gRPC</span>
-            <span class="skill-tag">REST API</span>
-            <span class="skill-tag">PostgreSQL</span>
-          </div>
+        <div class="item-desc">
+          Designed a fault-tolerant backend service using Flask and Python deployed on AWS, handling request batching via low-latency API endpoints.
         </div>
+      </div>
 
+      <div class="item">
+        <div class="item-header">
+          <div class="item-title">AI-Powered Job Application Tracker</div>
+        </div>
+        <div class="item-desc">
+          Developed an automated system utilizing LLMs to parse job descriptions, manage application statuses, and streamline workflows.
+        </div>
       </div>
     </section>
+
+    <section>
+      <h3 class="section-title">Technical Skills</h3>
+      <div class="skills-list">
+        <span class="skill-badge">Python</span>
+        <span class="skill-badge">Java</span>
+        <span class="skill-badge">C++</span>
+        <span class="skill-badge">JavaScript</span>
+        <span class="skill-badge">PostgreSQL / MySQL</span>
+        <span class="skill-badge">AWS</span>
+        <span class="skill-badge">Docker</span>
+        <span class="skill-badge">REST / gRPC</span>
+        <span class="skill-badge">Flask</span>
+        <span class="skill-badge">CI/CD</span>
+        <span class="skill-badge">LLMs & RAG</span>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2026 Bekzat Gulzhigit uulu. All rights reserved.</p>
+    </footer>
 
   </div>
-
-  <footer>
-    <div class="container">
-      <p>Designed and built by Bekzat Gulzhigit uulu &copy; 2026</p>
-    </div>
-  </footer>
 
 </body>
 </html>
