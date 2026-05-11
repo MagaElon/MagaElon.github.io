@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bekzat Gulzhigit uulu</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      color: #1a1a1a;
+      background: #fdfdfd;
+      line-height: 1.65;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 60px 28px 80px;
+      font-size: 16px;
+    }
+    a { color: #0b5cab; text-decoration: none; border-bottom: 1px solid rgba(11,92,171,0.25); transition: all 0.15s; }
+    a:hover { color: #0b5cab; border-bottom-color: #0b5cab; }
+
+    header { display: flex; gap: 32px; align-items: flex-start; margin-bottom: 48px; }
+    .photo {
+      flex-shrink: 0; width: 160px; height: 160px;
+      border-radius: 50%; object-fit: cover; background: #eee;
+    }
+    .intro h1 { font-size: 28px; font-weight: 600; margin-bottom: 6px; letter-spacing: -0.3px; }
+    .intro .tagline { color: #555; font-size: 15px; margin-bottom: 14px; }
+    .links { display: flex; flex-wrap: wrap; gap: 14px; font-size: 14px; }
+    .links a { border: none; color: #555; }
+    .links a:hover { color: #0b5cab; }
+
+    section { margin-bottom: 44px; }
+    h2 {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 22px; font-weight: 600;
+      margin-bottom: 18px; color: #1a1a1a;
+      border-bottom: 1px solid #e5e5e5; padding-bottom: 6px;
+    }
+    p { margin-bottom: 14px; }
+    .bio p:last-child { margin-bottom: 0; }
+
+    .news-item, .exp-item, .project-item {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 16px;
+      margin-bottom: 18px;
+      align-items: baseline;
+    }
+    .date { color: #888; font-size: 13px; font-variant-numeric: tabular-nums; }
+    .exp-item .role { font-weight: 600; }
+    .exp-item .org { color: #555; }
+    .project-item .title { font-weight: 600; }
+    .project-item .desc { color: #444; font-size: 15px; }
+
+    .award-list { list-style: none; }
+    .award-list li {
+      padding: 8px 0;
+      border-bottom: 1px solid #f0f0f0;
+      display: flex; justify-content: space-between; gap: 16px;
+      font-size: 15px;
+    }
+    .award-list li:last-child { border-bottom: none; }
+    .award-year { color: #888; font-size: 13px; flex-shrink: 0; }
+
+    .skills { font-size: 14px; color: #444; }
+    .skills strong { color: #1a1a1a; }
+
+    footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid #eee; color: #888; font-size: 13px; text-align: center; }
+
+    @media (max-width: 600px) {
+      header { flex-direction: column; gap: 20px; }
+      .photo { width: 130px; height: 130px; }
+      .news-item, .exp-item, .project-item {
+        grid-template-columns: 1fr; gap: 4px;
+      }
+      .date { font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="profile.jpg" alt="Bekzat" class="photo">
+    <div class="intro">
+      <h1>Bekzat Gulzhigit uulu</h1>
+      <p class="tagline">CS @ DePaul University · AI concentration · NG 2027</p>
+      <div class="bio">
+        <p>I'm a junior at DePaul University studying Computer Science with an AI concentration. Originally from Kyrgyzstan, where physics was what got me into programming — gold at the national Physics Olympiad and bronze at the World Physics Olympiad along the way.</p>
+        <p>Right now I'm building agentic LLM-based QA systems as a Research Intern at <a href="https://www.qualgent.co/">QualGent</a> (YC X25), and working on backend services for aviation fleet management at <a href="https://skyit.services">SkyIT Services</a>.</p>
+      </div>
+      <div class="links" style="margin-top: 18px;">
+        <a href="mailto:bgulzhig@depaul.edu">email</a>
+        <a href="https://github.com/MagaElon">github</a>
+        <a href="https://www.linkedin.com/in/bekzatg/">linkedin</a>
+        <a href="cv.pdf">cv</a>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <h2>News</h2>
+    <div class="news-item">
+      <div class="date">Apr 2026</div>
+      <div>Joined <strong>SkyIT Services</strong> as a Software Engineer Intern, working on backend services for aviation fleet management.</div>
+    </div>
+    <div class="news-item">
+      <div class="date">Jan 2026</div>
+      <div>Started as a Research Intern at <strong>QualGent</strong> (YC X25), building agentic mobile QA systems with LLMs.</div>
+    </div>
+    <div class="news-item">
+      <div class="date">2025</div>
+      <div>1st place at the <strong>DePaul Hackathon</strong>.</div>
+    </div>
+    <div class="news-item">
+      <div class="date">Summer 2025</div>
+      <div>SWE Intern at <strong>Kodif</strong> (SF) — built high-throughput Flask APIs cutting response latency by ~22%.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+
+    <div class="exp-item">
+      <div class="date">Apr 2026 – Present</div>
+      <div>
+        <div class="role">Software Engineer Intern</div>
+        <div class="org">SkyIT Services · Remote</div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="date">Jan 2026 – Present</div>
+      <div>
+        <div class="role">Research Intern (AI & QA)</div>
+        <div class="org">QualGent (YC X25) · San Francisco (Remote)</div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="date">Sep – Nov 2025</div>
+      <div>
+        <div class="role">Software Engineer Assistant</div>
+        <div class="org">Intelligent Design Lab, DePaul University</div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="date">Jun – Aug 2025</div>
+      <div>
+        <div class="role">Software Engineering Intern</div>
+        <div class="org">Kodif · San Francisco</div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="date">Jan – May 2025</div>
+      <div>
+        <div class="role">Teaching Assistant — Data Structures</div>
+        <div class="org">DePaul University</div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="date">Jun – Sep 2024</div>
+      <div>
+        <div class="role">Research Assistant</div>
+        <div class="org">NASA Illinois Space Grant, DePaul University</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+
+    <div class="project-item">
+      <div class="date">2025</div>
+      <div>
+        <div class="title">AI-Powered Job Application Tracker</div>
+        <div class="desc">Automated tracking system that uses LLMs to parse job descriptions, manage application statuses, and streamline the application workflow.</div>
+      </div>
+    </div>
+
+    <div class="project-item">
+      <div class="date">2025</div>
+      <div>
+        <div class="title">Enterprise RAG Pipeline (IBM TechXchange)</div>
+        <div class="desc">High-performance retrieval system achieving 90%+ accuracy on enterprise data, built on IBM watsonx.ai with a custom inference pipeline.</div>
+      </div>
+    </div>
+
+    <div class="project-item">
+      <div class="date">2025</div>
+      <div>
+        <div class="title">ML Inference Service</div>
+        <div class="desc">Fault-tolerant Flask-based backend serving ML models via low-latency API endpoints, with request batching and CI/CD on AWS.</div>
+      </div>
+    </div>
+
+    <div class="project-item">
+      <div class="date">2024</div>
+      <div>
+        <div class="title">High-Volume Integration API</div>
+        <div class="desc">Secure gRPC and REST APIs for enterprise data integrations, achieving 90%+ accuracy on data flow validation.</div>
+      </div>
+    </div>
+
+    <p style="margin-top: 14px; font-size: 14px; color: #666;">→ More on <a href="https://github.com/MagaElon">GitHub</a>.</p>
+  </section>
+
+  <section>
+    <h2>Awards & Honors</h2>
+    <ul class="award-list">
+      <li><span>1st Place, DePaul Hackathon</span><span class="award-year">2025</span></li>
+      <li><span>Ray Daly Endowed Scholarship for Physics</span><span class="award-year">2023</span></li>
+      <li><span>Fritchele Endowed Scholarship</span><span class="award-year">2023</span></li>
+      <li><span>2nd place, Bishkek International Marathon</span><span class="award-year">2022</span></li>
+      <li><span>Bronze Medal, World Physics Olympiad</span><span class="award-year">2022</span></li>
+      <li><span>Honorable Mention, European Physics Olympiad</span><span class="award-year">2021</span></li>
+      <li><span>Gold Medal, National Physics Olympiad (Kyrgyzstan)</span><span class="award-year">2021</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <p class="skills">
+      <strong>Languages:</strong> Python, Java, SQL (PostgreSQL/MySQL), C++, JavaScript, Bash<br>
+      <strong>Systems & Cloud:</strong> Flask, Django, RESTful & gRPC APIs, Docker, AWS, GitHub Actions, Linux<br>
+      <strong>AI & Data:</strong> LLM Prompt Engineering, RAG, IBM watsonx.ai, TensorFlow, NumPy, Pandas<br>
+      <strong>Practices:</strong> PyTest, CI/CD, Agile/Scrum, SOLID principles, Relational DB design
+    </p>
+  </section>
+
+  <footer>
+    Last updated May 2026 · Built with HTML & CSS, no frameworks.
+  </footer>
+
+</body>
+</html>
