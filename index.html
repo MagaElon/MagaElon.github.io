@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bekzat Gulzhigit uulu | Software Engineer</title>
+  <title>Bekzat Gulzhigit uulu | Software Engineer & AI Researcher</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -68,9 +68,17 @@
 
     /* Hero Section */
     .hero {
-      min-height: 80vh;
-      display: flex; flex-direction: column; justify-content: center;
-      padding: 60px 0;
+      min-height: 85vh;
+      display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+      padding: 80px 0;
+    }
+    .hero-img {
+      width: 160px; height: 160px;
+      border-radius: 50%;
+      border: 2px solid rgba(59, 130, 246, 0.5);
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.2);
+      margin-bottom: 32px;
+      object-fit: cover;
     }
     .hero h1 {
       font-size: clamp(2.5rem, 5vw, 4.5rem);
@@ -85,12 +93,33 @@
       -webkit-text-fill-color: transparent;
     }
     .hero p {
-      font-size: 1.1rem; color: var(--text-muted); max-width: 600px; margin-bottom: 32px;
+      font-size: 1.15rem; color: var(--text-muted); max-width: 650px; margin-bottom: 32px; font-weight: 300;
+    }
+    
+    .action-buttons {
+      display: flex; gap: 20px; align-items: center; margin-bottom: 32px;
+    }
+    .btn-resume {
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--accent);
+      border: 1px solid rgba(59, 130, 246, 0.4);
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.1);
+    }
+    .btn-resume:hover {
+      background: rgba(59, 130, 246, 0.2);
+      box-shadow: 0 0 25px rgba(59, 130, 246, 0.3);
+      transform: translateY(-2px);
     }
     .social-links a {
-      color: var(--text-muted); font-size: 1.5rem; margin-right: 20px; transition: all 0.3s ease; text-decoration: none;
+      color: var(--text-muted); font-size: 1.5rem; margin-right: 15px; transition: all 0.3s ease; text-decoration: none;
     }
-    .social-links a:hover { color: var(--accent); transform: translateY(-3px); display: inline-block; }
+    .social-links a:hover { color: var(--text-main); transform: translateY(-3px); display: inline-block; }
 
     /* Sections */
     section { padding: 80px 0; border-top: 1px solid var(--card-border); }
@@ -160,22 +189,25 @@
       <div class="nav-links">
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
-        <a href="cv.pdf" target="_blank">Resume</a>
       </div>
     </div>
   </nav>
 
   <div class="container">
     <header class="hero fade-in">
+      <img src="https://github.com/MagaElon.png" alt="Bekzat" class="hero-img">
       <h1>Bekzat <br><span class="gradient-text">Gulzhigit uulu</span></h1>
       <p class="delay-1 fade-in">
-        First-generation CS student at DePaul University concentrating in Artificial Intelligence. 
-        I build high-performance data systems, scalable REST APIs, and agentic LLM workflows. Physics Olympiad medalist turned software engineer.
+        Award-winning Computer Scientist and AI Researcher based in Chicago. Medallist at the World Physics Olympiad and 1st Place Champion at the DePaul Hackathon. I specialize in architecting high-performance machine learning inference systems, enterprise RAG pipelines, and self-healing LLM agentic frameworks for YC-backed startups.
       </p>
-      <div class="social-links delay-2 fade-in">
-        <a href="https://github.com/MagaElon" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/bekzatg/" target="_blank"><i class="fab fa-linkedin"></i></a>
-        <a href="mailto:bgulzhig@depaul.edu"><i class="fas fa-envelope"></i></a>
+      
+      <div class="action-buttons delay-2 fade-in">
+        <a href="bekzat_resume.pdf" target="_blank" class="btn-resume"><i class="fas fa-file-pdf"></i> View Resume</a>
+        <div class="social-links">
+          <a href="https://github.com/MagaElon" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/bekzatg/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="mailto:bgulzhig@depaul.edu"><i class="fas fa-envelope"></i></a>
+        </div>
       </div>
     </header>
 
