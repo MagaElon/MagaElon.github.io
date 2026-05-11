@@ -3,237 +3,288 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bekzat Gulzhigit uulu</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <title>Bekzat Gulzhigit uulu | Software Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    :root {
+      --bg-color: #0a0a0a;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --accent: #3b82f6;
+      --accent-glow: #8b5cf6;
+    }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    
     body {
-      font-family: 'Inter', -apple-system, sans-serif;
-      color: #1a1a1a;
-      background: #fdfdfd;
-      line-height: 1.65;
-      max-width: 780px;
-      margin: 0 auto;
-      padding: 60px 28px 80px;
-      font-size: 16px;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
     }
-    a { color: #0b5cab; text-decoration: none; border-bottom: 1px solid rgba(11,92,171,0.25); transition: all 0.15s; }
-    a:hover { color: #0b5cab; border-bottom-color: #0b5cab; }
 
-    header { display: flex; gap: 32px; align-items: flex-start; margin-bottom: 48px; }
-    .photo {
-      flex-shrink: 0; width: 160px; height: 160px;
-      border-radius: 50%; object-fit: cover; background: #eee;
+    /* Background Glow Effect */
+    .bg-glow {
+      position: fixed;
+      top: -20%; left: -10%;
+      width: 50vw; height: 50vw;
+      background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(10,10,10,0) 70%);
+      z-index: -1;
+      border-radius: 50%;
+      pointer-events: none;
     }
-    .intro h1 { font-size: 28px; font-weight: 600; margin-bottom: 6px; letter-spacing: -0.3px; }
-    .intro .tagline { color: #555; font-size: 15px; margin-bottom: 14px; }
-    .links { display: flex; flex-wrap: wrap; gap: 14px; font-size: 14px; }
-    .links a { border: none; color: #555; }
-    .links a:hover { color: #0b5cab; }
-
-    section { margin-bottom: 44px; }
-    h2 {
-      font-family: 'Lora', Georgia, serif;
-      font-size: 22px; font-weight: 600;
-      margin-bottom: 18px; color: #1a1a1a;
-      border-bottom: 1px solid #e5e5e5; padding-bottom: 6px;
+    .bg-glow-2 {
+      position: fixed;
+      bottom: -20%; right: -10%;
+      width: 50vw; height: 50vw;
+      background: radial-gradient(circle, rgba(139,92,246,0.1) 0%, rgba(10,10,10,0) 70%);
+      z-index: -1;
+      border-radius: 50%;
+      pointer-events: none;
     }
-    p { margin-bottom: 14px; }
-    .bio p:last-child { margin-bottom: 0; }
 
-    .news-item, .exp-item, .project-item {
-      display: grid;
-      grid-template-columns: 110px 1fr;
-      gap: 16px;
-      margin-bottom: 18px;
-      align-items: baseline;
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+    /* Navigation */
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 24px 0;
+      position: sticky; top: 0;
+      background: rgba(10, 10, 10, 0.8);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+      border-bottom: 1px solid var(--card-border);
     }
-    .date { color: #888; font-size: 13px; font-variant-numeric: tabular-nums; }
-    .exp-item .role { font-weight: 600; }
-    .exp-item .org { color: #555; }
-    .project-item .title { font-weight: 600; }
-    .project-item .desc { color: #444; font-size: 15px; }
-
-    .award-list { list-style: none; }
-    .award-list li {
-      padding: 8px 0;
-      border-bottom: 1px solid #f0f0f0;
-      display: flex; justify-content: space-between; gap: 16px;
-      font-size: 15px;
+    .logo { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 1.2rem; color: var(--text-main); text-decoration: none; }
+    .logo span { color: var(--accent); }
+    .nav-links a {
+      color: var(--text-muted); text-decoration: none; margin-left: 24px; font-size: 0.9rem; transition: color 0.3s;
     }
-    .award-list li:last-child { border-bottom: none; }
-    .award-year { color: #888; font-size: 13px; flex-shrink: 0; }
+    .nav-links a:hover { color: var(--text-main); }
 
-    .skills { font-size: 14px; color: #444; }
-    .skills strong { color: #1a1a1a; }
-
-    footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid #eee; color: #888; font-size: 13px; text-align: center; }
-
-    @media (max-width: 600px) {
-      header { flex-direction: column; gap: 20px; }
-      .photo { width: 130px; height: 130px; }
-      .news-item, .exp-item, .project-item {
-        grid-template-columns: 1fr; gap: 4px;
-      }
-      .date { font-size: 12px; }
+    /* Hero Section */
+    .hero {
+      min-height: 80vh;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 60px 0;
     }
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      letter-spacing: -0.03em;
+    }
+    .gradient-text {
+      background: linear-gradient(to right, var(--accent), var(--accent-glow));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      font-size: 1.1rem; color: var(--text-muted); max-width: 600px; margin-bottom: 32px;
+    }
+    .social-links a {
+      color: var(--text-muted); font-size: 1.5rem; margin-right: 20px; transition: all 0.3s ease; text-decoration: none;
+    }
+    .social-links a:hover { color: var(--accent); transform: translateY(-3px); display: inline-block; }
+
+    /* Sections */
+    section { padding: 80px 0; border-top: 1px solid var(--card-border); }
+    .section-title {
+      font-size: 2rem; font-weight: 600; margin-bottom: 40px; display: flex; align-items: center; gap: 12px;
+    }
+    .section-title i { color: var(--accent); font-size: 1.5rem; }
+
+    /* Glassmorphism Cards */
+    .grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+    @media(min-width: 768px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 32px;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(59, 130, 246, 0.4);
+      box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.15);
+    }
+
+    .card-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; flex-wrap: wrap; }
+    .card-title { font-size: 1.25rem; font-weight: 600; color: var(--text-main); }
+    .card-date { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--accent); }
+    .card-subtitle { color: var(--text-muted); font-size: 1rem; margin-bottom: 16px; }
+    
+    ul.task-list { list-style: none; color: var(--text-muted); font-size: 0.95rem; }
+    ul.task-list li { margin-bottom: 12px; position: relative; padding-left: 20px; }
+    ul.task-list li::before {
+      content: '▹'; position: absolute; left: 0; color: var(--accent);
+    }
+
+    /* Skills Tags */
+    .skills-container { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    .skill-tag {
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--accent);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-family: 'JetBrains Mono', monospace;
+      border: 1px solid rgba(59, 130, 246, 0.2);
+    }
+
+    footer { text-align: center; padding: 40px 0; color: var(--text-muted); font-size: 0.9rem; border-top: 1px solid var(--card-border); }
+
+    /* Simple Fade In Animation */
+    .fade-in { animation: fadeIn 1s ease-out forwards; opacity: 0; transform: translateY(20px); }
+    @keyframes fadeIn { to { opacity: 1; transform: translateY(0); } }
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.4s; }
   </style>
 </head>
 <body>
 
-  <header>
-    <img src="profile.jpg" alt="Bekzat" class="photo">
-    <div class="intro">
-      <h1>Bekzat Gulzhigit uulu</h1>
-      <p class="tagline">CS @ DePaul University · AI concentration · NG 2027</p>
-      <div class="bio">
-        <p>I'm a junior at DePaul University studying Computer Science with an AI concentration. Originally from Kyrgyzstan, where physics was what got me into programming — gold at the national Physics Olympiad and bronze at the World Physics Olympiad along the way.</p>
-        <p>Right now I'm building agentic LLM-based QA systems as a Research Intern at <a href="https://www.qualgent.co/">QualGent</a> (YC X25), and working on backend services for aviation fleet management at <a href="https://skyit.services">SkyIT Services</a>.</p>
-      </div>
-      <div class="links" style="margin-top: 18px;">
-        <a href="mailto:bgulzhig@depaul.edu">email</a>
-        <a href="https://github.com/MagaElon">github</a>
-        <a href="https://www.linkedin.com/in/bekzatg/">linkedin</a>
-        <a href="cv.pdf">cv</a>
+  <div class="bg-glow"></div>
+  <div class="bg-glow-2"></div>
+
+  <nav>
+    <div class="container" style="display: flex; justify-content: space-between; width: 100%;">
+      <a href="#" class="logo">bekzat<span>.dev</span></a>
+      <div class="nav-links">
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="cv.pdf" target="_blank">Resume</a>
       </div>
     </div>
-  </header>
+  </nav>
 
-  <section>
-    <h2>News</h2>
-    <div class="news-item">
-      <div class="date">Apr 2026</div>
-      <div>Joined <strong>SkyIT Services</strong> as a Software Engineer Intern, working on backend services for aviation fleet management.</div>
-    </div>
-    <div class="news-item">
-      <div class="date">Jan 2026</div>
-      <div>Started as a Research Intern at <strong>QualGent</strong> (YC X25), building agentic mobile QA systems with LLMs.</div>
-    </div>
-    <div class="news-item">
-      <div class="date">2025</div>
-      <div>1st place at the <strong>DePaul Hackathon</strong>.</div>
-    </div>
-    <div class="news-item">
-      <div class="date">Summer 2025</div>
-      <div>SWE Intern at <strong>Kodif</strong> (SF) — built high-throughput Flask APIs cutting response latency by ~22%.</div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Experience</h2>
-
-    <div class="exp-item">
-      <div class="date">Apr 2026 – Present</div>
-      <div>
-        <div class="role">Software Engineer Intern</div>
-        <div class="org">SkyIT Services · Remote</div>
+  <div class="container">
+    <header class="hero fade-in">
+      <h1>Bekzat <br><span class="gradient-text">Gulzhigit uulu</span></h1>
+      <p class="delay-1 fade-in">
+        First-generation CS student at DePaul University concentrating in Artificial Intelligence. 
+        I build high-performance data systems, scalable REST APIs, and agentic LLM workflows. Physics Olympiad medalist turned software engineer.
+      </p>
+      <div class="social-links delay-2 fade-in">
+        <a href="https://github.com/MagaElon" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/bekzatg/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:bgulzhig@depaul.edu"><i class="fas fa-envelope"></i></a>
       </div>
-    </div>
+    </header>
 
-    <div class="exp-item">
-      <div class="date">Jan 2026 – Present</div>
-      <div>
-        <div class="role">Research Intern (AI & QA)</div>
-        <div class="org">QualGent (YC X25) · San Francisco (Remote)</div>
+    <section id="experience" class="fade-in">
+      <h2 class="section-title"><i class="fas fa-briefcase"></i> Experience</h2>
+      <div class="grid">
+        
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Software Engineer Intern</h3>
+            <span class="card-date">Apr 2026 – Present</span>
+          </div>
+          <div class="card-subtitle">SkyIT Services</div>
+          <ul class="task-list">
+            <li>Developing robust backend services for aviation fleet management systems.</li>
+            <li>Collaborating with cross-functional teams to ensure high availability and code-quality standards.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Research Intern (AI & QA)</h3>
+            <span class="card-date">Jan 2026 – Present</span>
+          </div>
+          <div class="card-subtitle">QualGent (YC X25)</div>
+          <ul class="task-list">
+            <li>Engineering resilient, self-healing Python services utilizing NLP to automate bug detection and replace brittle manual test scripts.</li>
+            <li>Deploying scalable LLM-driven automation pipelines to optimize software simulation workflows.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Software Engineering Intern</h3>
+            <span class="card-date">Jun 2025 – Aug 2025</span>
+          </div>
+          <div class="card-subtitle">Kodif</div>
+          <ul class="task-list">
+            <li>Optimized high-throughput REST APIs using Python and Flask, improving response latency by 22% for fintech integrations.</li>
+            <li>Built robust CI/CD deployment suites with 85% test coverage, reducing manual QA time by 35%.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Software Engineering Assistant</h3>
+            <span class="card-date">Sep 2025 – Nov 2025</span>
+          </div>
+          <div class="card-subtitle">Intelligent Design Lab, DePaul University</div>
+          <ul class="task-list">
+            <li>Architected high-volume backend data systems using PostgreSQL to enable concurrent ML experiment tracking for 10+ researchers.</li>
+          </ul>
+        </div>
+
       </div>
-    </div>
+    </section>
 
-    <div class="exp-item">
-      <div class="date">Sep – Nov 2025</div>
-      <div>
-        <div class="role">Software Engineer Assistant</div>
-        <div class="org">Intelligent Design Lab, DePaul University</div>
+    <section id="projects" class="fade-in">
+      <h2 class="section-title"><i class="fas fa-code"></i> Selected Projects</h2>
+      <div class="grid grid-2">
+        
+        <div class="card">
+          <h3 class="card-title" style="margin-bottom: 8px;">AI Job Application Tracker</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Automated tracking system utilizing AI to parse job descriptions, manage application statuses, and streamline workflows.</p>
+          <div class="skills-container">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">LLMs</span>
+            <span class="skill-tag">Automation</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title" style="margin-bottom: 8px;">ML Inference Service</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Designed and deployed a fault-tolerant backend service using Flask and Python to serve machine learning models via low-latency endpoints.</p>
+          <div class="skills-container">
+            <span class="skill-tag">Flask</span>
+            <span class="skill-tag">AWS</span>
+            <span class="skill-tag">CI/CD</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title" style="margin-bottom: 8px;">Enterprise RAG Pipeline</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Architected a high-performance RAG system using IBM watsonx.ai, achieving 90%+ accuracy on enterprise data retrieval.</p>
+          <div class="skills-container">
+            <span class="skill-tag">IBM watsonx.ai</span>
+            <span class="skill-tag">RAG</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title" style="margin-bottom: 8px;">High-Volume Integration API</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Developed secure gRPC and REST APIs for enterprise data integrations, resolving critical vulnerabilities.</p>
+          <div class="skills-container">
+            <span class="skill-tag">gRPC</span>
+            <span class="skill-tag">REST API</span>
+            <span class="skill-tag">PostgreSQL</span>
+          </div>
+        </div>
+
       </div>
-    </div>
+    </section>
 
-    <div class="exp-item">
-      <div class="date">Jun – Aug 2025</div>
-      <div>
-        <div class="role">Software Engineering Intern</div>
-        <div class="org">Kodif · San Francisco</div>
-      </div>
-    </div>
-
-    <div class="exp-item">
-      <div class="date">Jan – May 2025</div>
-      <div>
-        <div class="role">Teaching Assistant — Data Structures</div>
-        <div class="org">DePaul University</div>
-      </div>
-    </div>
-
-    <div class="exp-item">
-      <div class="date">Jun – Sep 2024</div>
-      <div>
-        <div class="role">Research Assistant</div>
-        <div class="org">NASA Illinois Space Grant, DePaul University</div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Projects</h2>
-
-    <div class="project-item">
-      <div class="date">2025</div>
-      <div>
-        <div class="title">AI-Powered Job Application Tracker</div>
-        <div class="desc">Automated tracking system that uses LLMs to parse job descriptions, manage application statuses, and streamline the application workflow.</div>
-      </div>
-    </div>
-
-    <div class="project-item">
-      <div class="date">2025</div>
-      <div>
-        <div class="title">Enterprise RAG Pipeline (IBM TechXchange)</div>
-        <div class="desc">High-performance retrieval system achieving 90%+ accuracy on enterprise data, built on IBM watsonx.ai with a custom inference pipeline.</div>
-      </div>
-    </div>
-
-    <div class="project-item">
-      <div class="date">2025</div>
-      <div>
-        <div class="title">ML Inference Service</div>
-        <div class="desc">Fault-tolerant Flask-based backend serving ML models via low-latency API endpoints, with request batching and CI/CD on AWS.</div>
-      </div>
-    </div>
-
-    <div class="project-item">
-      <div class="date">2024</div>
-      <div>
-        <div class="title">High-Volume Integration API</div>
-        <div class="desc">Secure gRPC and REST APIs for enterprise data integrations, achieving 90%+ accuracy on data flow validation.</div>
-      </div>
-    </div>
-
-    <p style="margin-top: 14px; font-size: 14px; color: #666;">→ More on <a href="https://github.com/MagaElon">GitHub</a>.</p>
-  </section>
-
-  <section>
-    <h2>Awards & Honors</h2>
-    <ul class="award-list">
-      <li><span>1st Place, DePaul Hackathon</span><span class="award-year">2025</span></li>
-      <li><span>Ray Daly Endowed Scholarship for Physics</span><span class="award-year">2023</span></li>
-      <li><span>Fritchele Endowed Scholarship</span><span class="award-year">2023</span></li>
-      <li><span>2nd place, Bishkek International Marathon</span><span class="award-year">2022</span></li>
-      <li><span>Bronze Medal, World Physics Olympiad</span><span class="award-year">2022</span></li>
-      <li><span>Honorable Mention, European Physics Olympiad</span><span class="award-year">2021</span></li>
-      <li><span>Gold Medal, National Physics Olympiad (Kyrgyzstan)</span><span class="award-year">2021</span></li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Skills</h2>
-    <p class="skills">
-      <strong>Languages:</strong> Python, Java, SQL (PostgreSQL/MySQL), C++, JavaScript, Bash<br>
-      <strong>Systems & Cloud:</strong> Flask, Django, RESTful & gRPC APIs, Docker, AWS, GitHub Actions, Linux<br>
-      <strong>AI & Data:</strong> LLM Prompt Engineering, RAG, IBM watsonx.ai, TensorFlow, NumPy, Pandas<br>
-      <strong>Practices:</strong> PyTest, CI/CD, Agile/Scrum, SOLID principles, Relational DB design
-    </p>
-  </section>
+  </div>
 
   <footer>
-    Last updated May 2026 · Built with HTML & CSS, no frameworks.
+    <div class="container">
+      <p>Designed and built by Bekzat Gulzhigit uulu &copy; 2026</p>
+    </div>
   </footer>
 
 </body>
